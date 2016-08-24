@@ -1,0 +1,64 @@
+<div class="container">
+    <!-- Header/Breadcrumbs  -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">{{projects[projectID].name}}
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#/projects">Projects</a></li>
+                <li class="active">{{projects[projectID].name}}</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Project Item -->
+    <div class="row">
+        <!-- Project Images -->
+    <div class="col-md-8">
+            <div id="carousel-project-images" class="carousel slide" data-ride="carousel">
+                <!-- Images -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img class="img-responsive" style="max-height: 750px; margin: 0 auto" ng-src="/projects/{{projects[projectID].name}}/image1.png" alt="">
+                    </div>
+                    <div ng-repeat="i in range(5) track by $index" class="item" >
+                        <img class="img-responsive" style="max-height: 750px; margin: 0 auto" ng-src="/projects/{{projects[projectID].name}}/image{{$index + 2}}.png" alt="">
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" data-target="#carousel-project-images" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" data-target="#carousel-project-images" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Project Information -->
+        <div class="col-md-4">
+            <h3>Date: {{projects[projectID].date}}</h3>
+
+            <h3>Status: {{projects[projectID].status}}</h3>
+
+            <h3>Technology Used</h3>
+            <ul >
+                <li ng-repeat="tech in projects[projectID].technology">{{tech}}</li>
+            </ul>
+
+            <h3>Description</h3>
+            <p>{{projects[projectID].description}}</p>
+            
+            <h3>Features</h3>
+            <ul>
+                <li ng-repeat="feature in projects[projectID].features">{{feature}}</li>
+            </ul>
+
+            <a href="/projects/{{projects[projectID].name}}/{{projects[projectID].name}}.zip" class="btn btn-default">Download</a>
+        </div>
+    </div>
+</div>

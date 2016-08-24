@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<div class="container">
+    <!-- Header/Breadcrumbs  -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Projects
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li class="active">Projects</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Projects List  -->
+    <!--<a href="#/projects/0">
+                <img class="img-responsive img-hover" ng-src="projects/{{projects[0].name}}/banner.png" title={{projects[0].name}} alt="">
+                <p>{{projects[0].date}} - {{projects[0].name}}</p>
+    </a>-->
+    <div class=row ng-repeat="project in projects track by $index" ng-if="$index%4==0">
+        <div class="col-md-3 img-portfolio"
+            ng-repeat="i in [$index,$index+1,$index+2,$index+3]" 
+            ng-if="projects[i].name!=null">
+            <a href="#/projects/{{i}}/{{projects[i].name.split(' ').join('_')}}">
+                <img class="img-responsive img-hover" ng-src="projects/{{projects[i].name}}/banner.png" title={{projects[i].name}} alt="">
+                <p>{{projects[i].date}} - {{projects[i].name}}</p>
+            </a>
+        </div>
+    </div>
+</div>
