@@ -14,16 +14,12 @@
     </div>
 
     <!-- Projects List  -->
-    <!--<a href="#/projects/0">
-                <img class="img-responsive img-hover" ng-src="projects/{{projects[0].name}}/banner.png" title={{projects[0].name}} alt="">
-                <p>{{projects[0].date}} - {{projects[0].name}}</p>
-    </a>-->
     <div class=row ng-repeat="project in projects track by $index" ng-if="$index%4==0">
         <div class="col-md-3 img-portfolio"
             ng-repeat="i in [$index,$index+1,$index+2,$index+3]" 
             ng-if="projects[i].name!=null">
             <a href="#/projects/{{i}}/{{projects[i].name.split(' ').join('_')}}">
-                <img class="img-responsive img-hover" ng-src="projects/{{projects[i].name}}/banner.png" title={{projects[i].name}} alt="">
+                <img class="img-responsive img-hover" style="width:750px;" ng-src="projects/{{projects[i].name}}/banner.png" title={{projects[i].name}} alt="">
                 <p>{{projects[i].date}} - {{projects[i].name}}</p>
             </a>
         </div>

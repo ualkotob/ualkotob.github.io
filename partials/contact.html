@@ -11,5 +11,32 @@
             </ol>
         </div>
     </div>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfBX-Pc2gyK5j9xk-SITH_FS1KIzj_s4r_5tRMJi9RPuMrmwA/viewform?embedded=true" width="750" height="1000" style="align-self:center">Loading...</iframe>
+
+    <div class="row">
+        <div class="col-md-8">
+            <form name="contactForm" ng-submit="submitForm(contactForm.$valid)" action="https://formspree.io/umaralkotob@gmail.com" method="POST" novalidate>
+                <div class="form-group" ng-class="{ 'has-error' : contactForm.name.$invalid && !contactForm.name.$pristine }">
+                    <label>Name*</label>
+                    <input type="text" name="name" class="form-control" ng-model="user.name" required>
+                    <p ng-show="contactForm.name.$invalid && !contactForm.name.$pristine" class="help-block">You name is required.</p>
+                </div>
+            
+                <div class="form-group" ng-class="{ 'has-error' : contactForm.email.$invalid && !contactForm.email.$pristine }">
+                    <label>Email*</label>
+                    <input type="email" name="email" class="form-control" ng-model="user._replyto">
+                    <p ng-show="contactForm.email.$invalid && !contactForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                </div>
+                    
+                <div class="form-group" ng-class="{ 'has-error' : contactForm.message.$invalid && !contactForm.message.$pristine }">
+                    <label>Message*</label>
+                    <textarea rows="10" cols="100" class="form-control" ng-model="user.message" id="message" name="message" maxlength="999" style="resize:none" required></textarea>
+                    <p ng-show="contactForm.message.$invalid && !contactForm.message.$pristine" class="help-block">Your message is required</p>
+                </div>
+
+                <input type="hidden" name="_next" value="#/thanks" />
+
+                <button type="submit" ng-disabled="contactForm.$invalid" class="btn btn-default">Submit</button>
+            </form>
+        </div>        
+    </div>
 </div>

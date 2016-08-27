@@ -10,7 +10,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     .when("/about", { templateUrl: "partials/about.html", controller: "PageCtrl" })
     .when("/projects", { templateUrl: "partials/projects.html", controller: "ProjectCtrl" })
     .when("/contact", { templateUrl: "partials/contact.html", controller: "PageCtrl" })
-    .when("/sandbox", { templateUrl: "partials/sandbox.html", controller: "PageCtrl" })
+    .when("/thanks", { templateUrl: "partials/thanks.html", controller: "PageCtrl" })
     // Projects
     .when("/projects/:projectID/:name", { templateUrl: "partials/projectitem.html", controller: "ProjectCtrl" })
     // else 404
