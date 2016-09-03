@@ -1,0 +1,68 @@
+<p>    
+    Before talking about prototypal inheritance, we need to talk about how JavaScript is 
+    different from other object oriented programming languages. While other languages, 
+    like C# and Visual Basic, use what we know as classes, JavaScript uses objects. 
+</p>
+
+<h2>What is an Object?</h2>
+<p>
+    An object is a variable that holds other named variables. See our <code>person</code> object below.
+</p>
+<iframe height='146' scrolling='no' src='//codepen.io/ualkotob/embed/xExqpZ/?height=146&theme-id=dark&default-tab=js&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/ualkotob/pen/xExqpZ/'>Prototypical Inheritance: Object Example</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    As you can see, out <code>person</code> object holds two variables in <code>firstName</code> and <code>lastName</code> which 
+    are referred to as properties. Objects can also hold functions, which are referred to as methods. 
+    With that out of the way we can talk about inheritance.
+</p>
+
+<h2>Inheritance in JavaScript</h2>
+<p>
+    In JavaScript, inheritance is when one object inherits the properties/methods of another object.
+     We will call is a child parent relationship. The child object takes all of the properties and methods 
+    of the parent object, unless it already has them. See the example below.
+</p>
+<iframe height='493' scrolling='no' src='//codepen.io/ualkotob/embed/JRjyEz/?height=493&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/ualkotob/pen/JRjyEz/'>Prototypical Inheritance: Student Inheriting Person Example</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    We use the <code>__proto__</code> property here to have <code>student</code> inherit <code>person</code>. The <code>student</code> object has its 
+    own <code>firstName</code> and <code>lastName</code>, so those are not taken from <code>person</code>. It takes the <code>greet</code> method, 
+    since that does not exist in <code>student</code>. Lastly is keeps its own <code>major</code> property.
+</p>
+
+<h2>Checking If a Property Exists In the Parent or Child</h2>
+<p>
+    Sometimes you might want to check whether the property was inherited or not. 
+    In this case, you can use <code>hasOwnProperty</code> as shown below.
+</p>
+<iframe height='526' scrolling='no' src='//codepen.io/ualkotob/embed/mAdrqV/?height=526&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/ualkotob/pen/mAdrqV/'>Prototypical Inheritance: hasOwnProperty Example</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+
+<h2>Classical Inheritance vs Prototypal Inheritance</h2>
+<p>
+    The paradigm of inheriting from objects is fundamentally different from inheriting 
+    from classes. We can think of classes as more of a template for creating objects. 
+    They do not function on their own, and cannot be invoked without being instantiated in an object. 
+    When we use objects for inheritance, the parent object is always accessible directly, and the values can 
+    be changed after runtime. 
+</p>
+
+<h2>Different Syntax and Browser Compatibility</h2>
+<p>
+    The <code>__proto__</code> syntax we used above only works in Firefox and Google Chrome. For compatibility 
+    with most browsers, we need to use different syntax.
+</p>
+<iframe height='458' scrolling='no' src='//codepen.io/ualkotob/embed/BLaddp/?height=458&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/ualkotob/pen/BLaddp/'>Prototypical Inheritance: Object.create() Example</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+We can use <code>Object.create</code> to create an copy of the <code>person</code> object. What makes this different than using <code>__proto__</code> is 
+    that you cannot give <code>student</code> is that you need to give it custom properties after inheritence. Ify ou do it before, it will be lost when 
+    <code>person</code> is copied.
+</p>
+
+<h2>Conclusion</h2>
+<p>
+    When dealing with prototypical inheritance in JavaScript, it's imported to remember it's not interchangeable with class inheritance. 
+    We also need to careful of the syntax we use, to make sure we have the most compatibility. If we can keep that in mind, we can avoid 
+    mistakes and confusion in our code.
+</p>

@@ -1,0 +1,57 @@
+<p>
+    Function hoisting is the JavaScript paradigm where function and 
+    variable declarations move to the top of the current scope at runtime. 
+    Before we can understand this, we need to understand how scope works in JavaScript.
+</p>
+
+<h2>Scope</h2>
+<p>
+    Functions create scope in JavaScript, so whenever you declare a new function, 
+    you are creating a new scope.
+</p>
+<iframe height='199' scrolling='no' src='//codepen.io/ualkotob/embed/JRjwXZ/?height=199&theme-id=dark&default-tab=js&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/JRjwXZ/'>Function Hoisting: Scope</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    In this example we have three scopes. Scope A is the global scope. Scope B 
+    is created when we declare the <code>doSomething</code> function. Then we have Scope 
+    C which is created when we declare the <code>doSomethingElse</code> function. Scopes 
+    can access other scopes as long as their function is within that Scope.
+</p>
+<iframe height='453' scrolling='no' src='//codepen.io/ualkotob/embed/YGzdWo/?height=453&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/YGzdWo/'>Function Hoisting: Scope Access</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    Scope A cannot access Scope B and Scope C. Scope B cannot access Scope C. Scopes 
+    can only access items in their scope, and in outer scopes. They cannot access in inner scopes.
+</p>
+
+<h2>Function Hoisting</h2>
+<iframe height='265' scrolling='no' src='//codepen.io/ualkotob/embed/rrNojp/?height=265&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/rrNojp/'>Function Hoisting: Hoisting</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    As you can see, <code>doSomethingElse</code> is called at the beginning of 
+    <code>doSomething</code> before it is declared. It still runs, because <code>doSomethingElse</code> 
+    had it's declaration moved to the top at runtime. This is function hoisting.
+</p>
+
+<h2>Declarations and Assignments</h2>
+<p>
+    Only declarations are moved to the top. If a declaration is on the same line as 
+    an assignment, the assignments still acts as it would without being moved to the top.
+</p>
+<iframe height='208' scrolling='no' src='//codepen.io/ualkotob/embed/LRYrLv/?height=208&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/LRYrLv/'>Function Hoisting: Hoisting Access</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+
+<p>
+    <code>variableA</code> is called before it is declared, but still returns a value 
+    of <code>undefined</code>. If it didn't exist, this would have instead produced an error 
+    and the code would not run. That shows the decaration did ove to the top, but the assignment 
+    of <code>true</code> did not run until the line it was made.
+</p>
+
+<h2>Conclusion</h2>
+<p>
+    Although it is important to understand how function hoisting works, it 
+    is still best practice to make our function declarations at the top. We want to make 
+    our code readable, and don’t want to organize it in a way that is unintuitive.
+</p>
+

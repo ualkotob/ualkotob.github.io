@@ -1,0 +1,28 @@
+<p>
+    The <code>this</code> keyword is an important tool in developing JavaScript functions. 
+    It refers to the owner of the function being executed.
+</p>
+
+
+<h2>Object Owner and Inheritance </h2>
+<iframe height='270' scrolling='no' src='//codepen.io/ualkotob/embed/QKWJXK/?height=270&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/QKWJXK/'>'this' keyword: Person Example</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    In this example we use <code>this.firstName</code> in the method <code>greeting</code> to refer 
+    to the <code>firstName</code> property in the person object. <code>this</code> refers to person, as 
+    it is the current owner of the function <code>greeting</code>. Now, let</code>s see what happens 
+    if the method is inherited. 
+</p>
+<iframe height='383' scrolling='no' src='//codepen.io/ualkotob/embed/QKWJZK/?height=383&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/QKWJZK/'>'this' keyword: Student Example</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    In this example, we can see when <code>this</code> refers to <code>student</code>. Even though 
+    the <code>greeting</code> method was inherited from <code>person</code>. Since it is being called from 
+    <code>student</code>, <code>student</code> is the owner of <code>greeting</code> in this instance.
+</p>
+
+<h2>Conclusion</h2>
+<p>
+    The <code>this</code> keyword is a fairly simple to use and powerful tool. 
+    When using it we just need to remember the owner of that function.
+</p>

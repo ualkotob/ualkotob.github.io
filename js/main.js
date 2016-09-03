@@ -1,5 +1,5 @@
 /* Main AngularJS Web Application*/
-var app = angular.module('index', ['ngRoute']);
+var app = angular.module('index', ['ngRoute', 'ngSanitize']);
 
 /* Configure the Routes*/
 app.config(['$routeProvider', function ($routeProvider) {
@@ -9,10 +9,13 @@ app.config(['$routeProvider', function ($routeProvider) {
     // Pages
     .when("/about", { templateUrl: "partials/about.html", controller: "PageCtrl" })
     .when("/projects", { templateUrl: "partials/projects.html", controller: "ProjectCtrl" })
+    .when("/tutorials", { templateUrl: "partials/tutorials.html", controller: "PageCtrl" })
     .when("/contact", { templateUrl: "partials/contact.html", controller: "PageCtrl" })
     .when("/thanks", { templateUrl: "partials/thanks.html", controller: "PageCtrl" })
     // Projects
     .when("/projects/:projectID/:name", { templateUrl: "partials/projectitem.html", controller: "ProjectCtrl" })
+    // Tutorials
+    .when("/tutorials/:tutorialID/:name", { templateUrl: "partials/tutorialitem.html", controller: "PageCtrl" })
     // else 404
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
 }]);
@@ -206,17 +209,41 @@ app.controller('ProjectCtrl', function ($scope, $routeParams) {
 });
 
 /* Controls all other Pages */
-app.controller('PageCtrl', function ($scope/*, $location, $http */) {
+app.controller('PageCtrl', function ($scope, $http, $routeParams, $sce) {
 
-  // Activates the Carousel
-  $('.carousel').carousel({
-    interval: 5000
-  });
+    $scope.tutorialID = $routeParams.tutorialID;
 
-  // Activates Tooltips for Social Links
-  $('.tooltip-social').tooltip({
-    selector: "a[data-toggle=tooltip]"
-  })
+    $scope.to_trusted = function (html_code) {
+        return $sce.trustAsHtml(html_code);
+    }
 
+    $scope.tutorials =
+       [
+           {
+               name: 'Prototypical Inheritance',
+               summary: "Inheritance using objects instead of classes."
+           },
+           {
+               name: 'The \'this\' keyword',
+               summary: "It refers to the owner of the function being executed."
+           },
+           {
+               name: 'Function Hoisting',
+               summary: "Function declarations are always moved to the top of the current scope at runtime."
+           }
+       ];
+
+    $scope.range = function (n) {
+        return new Array(n);
+    };
+    //Put page content into tutorial array
+    var getContent = function(i){
+        $http.get("tutorials/" + $scope.tutorials[i].name + ".html").success(function (data) {
+            $scope.tutorials[i].content = data;
+        }
+    )};
+    for (var i = 0; i < $scope.tutorials.length; i++) {
+        getContent(i);
+    };
 });
 

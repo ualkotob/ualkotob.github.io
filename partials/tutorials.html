@@ -1,0 +1,23 @@
+<div class="container">
+    <!-- Header/Breadcrumbs  -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">JavaScript Tutorials
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li class="active">JavaScript Tutorials</li>
+            </ol>
+        </div>
+    </div>
+    <!-- Tutorial List  -->
+    <div class="row">
+        <div ng-repeat="tutorial in tutorials track by $index" class="col-md-3">
+            <h3><a href="#/tutorials/{{$index}}/{{tutorial.name.split(' ').join('_')}}">{{tutorial.name}}</a>
+            </h3>
+            <p>{{tutorial.summary}}</p>
+<!--            <a class="btn btn-default" href="#/tutorials/{{$index}}/{{tutorial.name.split(' ').join('_')}}">Read More <i class="fa fa-angle-right"></i></a>-->
+        </div>
+    </div>
+</div>
