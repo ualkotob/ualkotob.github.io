@@ -1,0 +1,35 @@
+<p>
+    Dependency injection is the practice of putting all of a functions dependency's in its parameters. 
+    The makes it clear what data the function is using when we call it, everything it uses needs to be 
+    passed in.
+</p>
+<h2>Converting a Function</h2>
+<iframe height='257' scrolling='no' src='//codepen.io/ualkotob/embed/WGbwkK/?height=257&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/WGbwkK/'>Depandancy Injection: Before</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    This function doesn't use dependency injection. As we can see, the function calls on the variable <code>name</code> 
+    when it prints to the console. <code>name</code> is a dependency, since it will not function without that variable. 
+    For dependency injection, we need to pass dependency's as parameters.
+</p>
+<iframe height='290' scrolling='no' src='//codepen.io/ualkotob/embed/ALjKaA/?height=290&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/ALjKaA/'>Depandancy Injection: After</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    Now <code>name</code> is instead a parameter in the function. <code>sayName</code> no longer has any external dependencies. 
+    This is a very simple example, but you can see how to make sure your function has all its dependencies 
+    in its parameters.
+</p>
+
+<h2>Why Use Dependency Injection?</h2>
+<p>
+    Although designing your functions this way can make them more flexible, the main reason it is used is 
+    for testing. When a function has external dependencies, it can be a nightmare to test. When it throws 
+    an error, you can't be sure if there is something wrong with the function, or one of its dependencies. 
+    When all dependencies are in the parameters, you can use dummy data for testing, so you can reduce issues. 
+    This is often done using XML to test functions and find out if it can deal with every situation required of it.
+</p>
+
+<h2>Conclusion</h2>
+<p>
+    We can use dependency injection to make our functions easier to debug. It can also help with testing 
+    different data from external sources.
+</p>

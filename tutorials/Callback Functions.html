@@ -1,2 +1,29 @@
-<p>placeholder</p>
+<p>
+    In JavaScript functions are considered objects. This means we can treat them like objects. 
+    Callback functions are functions that are passed through other functions.
+</p>
 
+<h2>Functions as Parameters</h2>
+<iframe height='325' scrolling='no' src='//codepen.io/ualkotob/embed/bwGyjm/?height=325&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/bwGyjm/'>Callback Functions: Parameter</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    Here we use <code>add</code> as a callback function. It is declared in the parameters, and executed 
+    as part of <code>useNumbers</code>. Although this does demonstrate the callback functions, this example 
+    doesn't really make sense, since there is no need to use a callback function here.
+</p>
+
+<h2>Why Use Callbacks?</h2>
+<p>
+    The main reason to use callback functions, it to prevent blocking. JavaScript is inherently 
+    a single threaded language, and when a process doesn't let anything else happen until it is 
+    finished, it is blocking. A common function that blocks is the <code>alert</code> function. It requires 
+    user input before it will let any other processes run. Callback functions wait for the 
+    function calling it to complete before executing in the main thread, so we can prevent blocking 
+    by using them.
+</p>
+
+<h2>Conclusion</h2>
+<p>
+    Whenever we pass a function as a parameter of another function, we are using callbacks. 
+    These are mainly used to prevent blocking and make our programs asynchronous.
+</p>

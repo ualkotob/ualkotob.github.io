@@ -1,0 +1,62 @@
+<p>
+    Although JavaScript isn</code>t inherently a functional programming language, we can use some of the 
+    practices of function programming to improve our code.
+</p>
+
+<h2>Functions Are Self-Contained</h2>
+<iframe height='279' scrolling='no' src='//codepen.io/ualkotob/embed/yayVLq/?height=279&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/yayVLq/'>Functional Programming: Before</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    We have a simple function <code>sum</code> here. It adds all the number of the <code>numArray</code> 
+    then prints the result. This function is breaking a bunch of function programming rules. The first we'll 
+    address is being self-contained. Functions should have no hidden inputs/outputs. Every input should be a 
+    parameter, and every output should be returned. Currently our function has no parameters and returns nothing. 
+    Let's fix that.
+</p>
+<iframe height='319' scrolling='no' src='//codepen.io/ualkotob/embed/vXEyNK/?height=319&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/vXEyNK/'>Functional Programming: Self Contained</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    Now we have it take the <code>numArray</code> as a parameter, and return the <code>console.log</code>. 
+    Not we know this function takes in a number array and returns a print to console. Before this information 
+    was hidden in the function.
+</p>
+
+
+<h2>Functions Do One Thing</h2>
+
+<p>
+    Although our function may seem simple, it still is doing too much. Function should just do one thing, 
+    and out function does two. It add the numbers and prints to the console. We can fix that too.
+</p>
+<iframe height='350' scrolling='no' src='//codepen.io/ualkotob/embed/LREbGV/?height=350&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/LREbGV/'>Functional Programming: Do One Thing</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    Not we have the function split into <code>sum</code> and <code>printResult</code>. They each just do one 
+    thing, and are still self-contained. <code>printResult</code> is kind of a pointless function, but it is a 
+    good example of functional programming practices.
+</p>
+
+<h2>Functions Are Recursive</h2>
+
+<p>
+    The final concept I</code>m going over is recursion. Although not always necessary, making a function 
+    recursive is more in line with functional programming paradigms. Our <code>sum</code> function includes 
+    a <code>for</code> loop where we iterate over a list. We</code>re going to replace this with recursion.
+</p>
+<iframe height='373' scrolling='no' src='//codepen.io/ualkotob/embed/yayVOR/?height=373&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/yayVOR/'>Functional Programming: Recursion</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    So, not instead of using a <code>for</code> loop, we are using an index to track our progress thought 
+    the array, and then calling our function in itself to add the rest. Recursion is when a function calls 
+    upon itself. For every value in the array, out new function will make another call adding each subsequent 
+    return value to the total.
+</p>
+
+<h2>Conclusion</h2>
+
+<p>
+    Function programming isn</code>t a take all or nothing thing in JavaScript. In general, it breaks down to 
+    all functions should always have the same output for the same input. All of these concepts above help 
+    achieve this, and get us closer to this goal. It</code>s our job as the programmer to decide when it's 
+    best to employ these.
+</p>
