@@ -15,16 +15,16 @@
     <!-- Tutorial Item -->
     <div class="row">
 
-        <div class="col-lg-8" ng-bind-html="to_trusted(tutorials[tutorialID].content)"></div>
+        <div class="col-lg-9" ng-bind-html="to_trusted(tutorials[tutorialID].content)"></div>
     
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="well">
-                <h4>All Tutorials</h4>
+                <h4>All JavaScript Tutorials</h4>
                 <div class="row">
                     <div class="col-lg-12">
                         <ul class="list-unstyled">
-                            <li ng-repeat ="tutorial in tutorials track by $index">
-                                <a href="#/tutorials/{{$index}}/{{tutorial.name.split(' ').join('_')}}">{{tutorial.name}}</a>
+                            <li ng-repeat ="tutorial in tutorials | orderBy: 'name'">
+                                <a href="#/tutorials/{{tutorial.index}}/{{tutorial.name.split(' ').join('_')}}">{{tutorial.name}}</a>
                         </ul>
                     </div>
                 </div>

@@ -224,7 +224,7 @@ app.controller('PageCtrl', function ($scope, $http, $routeParams, $sce) {
                summary: "Inheritance using objects instead of classes."
            },
            {
-               name: 'The \'this\' Keyword',
+               name: 'The this Keyword',
                summary: "It refers to the owner of the function being executed."
            },
            {
@@ -256,10 +256,11 @@ app.controller('PageCtrl', function ($scope, $http, $routeParams, $sce) {
     $scope.range = function (n) {
         return new Array(n);
     };
-    //Put page content into tutorial array
+    //Put page content and index into tutorial array
     var getContent = function(i){
         $http.get("tutorials/" + $scope.tutorials[i].name + ".html").success(function (data) {
             $scope.tutorials[i].content = data;
+            $scope.tutorials[i].index = i;
         }
     )};
     for (var i = 0; i < $scope.tutorials.length; i++) {

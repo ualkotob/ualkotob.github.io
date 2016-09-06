@@ -13,11 +13,10 @@
     </div>
     <!-- Tutorial List  -->
     <div class="row">
-        <div ng-repeat="tutorial in tutorials track by $index" class="col-md-3">
-            <h3><a href="#/tutorials/{{$index}}/{{tutorial.name.split(' ').join('_')}}">{{tutorial.name}}</a>
+        <div ng-repeat="tutorial in tutorials | orderBy: 'name'" class="col-md-3">
+            <h3><a href="#/tutorials/{{tutorial.index}}/{{tutorial.name.split(' ').join('_')}}">{{tutorial.name}}</a>
             </h3>
             <p>{{tutorial.summary}}</p>
-<!--            <a class="btn btn-default" href="#/tutorials/{{$index}}/{{tutorial.name.split(' ').join('_')}}">Read More <i class="fa fa-angle-right"></i></a>-->
         </div>
     </div>
 </div>
