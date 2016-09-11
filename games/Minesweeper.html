@@ -1,0 +1,50 @@
+<div class="container">
+<!-- Header/Breadcrumbs  -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Minesweeper
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <!--<li><a href="#/games">Games</a></li>-->
+                <li class="active">Minesweeper</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Minesweeper -->
+    <div class="col-lg-12">
+        <h2>Grid Size: <input type="number" min="5" max="99" ng-model="height"> x <input type="number" min="5" max="99" ng-model="width"> 
+            Mines: <input type="number" min="1" max="{{height*width - ((height*width)/2)}}" ng-model="mines"> 
+            Easy Start: <input type="checkbox" ng-model="easyStart">
+            <button ng-click='startGame()' class="btn btn-default">New Game</button>
+        </h2>
+    </div>
+    <div class="col-lg-12" ng-if="start">
+        <h2>
+            <div  class="col-lg-3">
+                <p>Mines Left: {{minesLeft}}</p>
+                <p ng-if="lose">GAME OVER</p>
+                <p ng-if="win">YOU WIN</p>
+            </div>
+        </h2>
+        <table>
+            <tr ng-repeat="row in minefield.rows">
+                <td ng-repeat="spot in row.spots" ng-click='reveal(spot)' ng-right-click='flag(spot)'>
+                    <img ng-if="spot.flag" src="games/flag.png">
+                    <img ng-if="!spot.flag && spot.isCovered" src="games/cover.png">
+                    <img ng-if="!spot.flag && !spot.isCovered && spot.content == 'empty'" src="games/clean.png">
+                    <img ng-if="!spot.flag && !spot.isCovered && spot.content == 'mine'" src="games/bomb.png">
+                    <img ng-if="!spot.flag && !spot.isCovered && spot.content == 1" src="games/num1.png">
+                    <img ng-if="!spot.flag && !spot.isCovered && spot.content == 2" src="games/num2.png">
+                    <img ng-if="!spot.flag && !spot.isCovered && spot.content == 3" src="games/num3.png">
+                    <img ng-if="!spot.flag && !spot.isCovered && spot.content == 4" src="games/num4.png">
+                    <img ng-if="!spot.flag && !spot.isCovered && spot.content == 5" src="games/num5.png">
+                    <img ng-if="!spot.flag && !spot.isCovered && spot.content == 6" src="games/num6.png">
+                    <img ng-if="!spot.flag && !spot.isCovered && spot.content == 7" src="games/num7.png">
+                    <img ng-if="!spot.flag && !spot.isCovered && spot.content == 8" src="games/num8.png">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
