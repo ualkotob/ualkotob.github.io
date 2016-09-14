@@ -19,6 +19,21 @@
     in its parameters.
 </p>
 
+<h2>RequireJS Example</h2>
+<p>
+    RequireJS is a file/module loader for JavaScript, and makes use of dependancy injection often. I'm going to talk 
+    about <code>define</code> and <code>require</code>.
+</p>
+<iframe height='309' scrolling='no' src='//codepen.io/ualkotob/embed/gwPykE/?height=309&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ualkotob/pen/gwPykE/'>Dependancy Injection: RequireJS</a> by Umar Alkotob (<a href='http://codepen.io/ualkotob'>@ualkotob</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+<p>
+    Here we define the <code>colors</code> module. This only stores the <code>colors</code> array. Then we use 
+    <code>require</code> to attach this module as a dependancy for another function. We attach it to a function 
+    that displays all the colors in the array. Using this method, we could define multiple colors modules for 
+    testing, and attach them to the fucntions that need them using <code>require</code> Although this is a simple example,
+    it is to basic process by which dependancy injection is achieved in RequireJS.
+</p>
+
 <h2>Why Use Dependency Injection?</h2>
 <p>
     Although designing your functions this way can make them more flexible, the main reason it is used is 
